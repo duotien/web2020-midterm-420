@@ -80,4 +80,18 @@ INSERT INTO HANGHOA (MaHH, TenHH, DonGia, Hinh) VALUES
 ('TANK01', 'M1A1 Abrams', 2000, 'M1A1.png'),
 ('SCO00', 'Honda Dream', 200, 'Dream.png'),
 ('XLAN00', 'Lucass X79Z', 400, 'XLan00.png'),
-('XLAN01', 'Lucass X7', 500, 'XLan01.png'),
+('XLAN01', 'Lucass X7', 500, 'XLan01.png');
+
+#KhachHang(#MaKH, HoTen, DienThoai, Email)
+INSERT INTO KHACHHANG (MaKH, HoTen, DienThoai, Email) VALUES
+('GUEST', 'Guest', '123456789', 'guest@mail'),
+('KH00', 'Duong Tien', '37242344', 'tien@email.com'),
+('KH01', 'Thanh Phung', '7436214', 'phungtung@email.com'),
+('KH02', 'Gia Phat', '089432475', 'phatjsd@email.com'),
+('KH03', 'Nhut Minh Phung', '231566424', 'MinhPh@email.com'),
+('KH04', 'Phan Nhat Minh', '32475954', 'PhNhMinh@email.com'),
+('KH05', 'Doan Minh Tan', '32485564', 'tanmin@email.com'),
+('KH06', 'Duong Gia Bao', '34235623', 'dgbaogia@email.com'),
+('KH07', 'Michael De Santa', '7684443', 'miceldes@email.com'),
+('KH08', 'Trevor Phillips', '43742375', 'trephilips@email.com'),
+('KH09', 'Franklin Clinton', '6542380', 'frankclinton@email.com');
