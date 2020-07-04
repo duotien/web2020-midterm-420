@@ -76,11 +76,14 @@ INSERT INTO LOAI (MaLoai, TenLoai, MoTa) VALUES
 INSERT INTO HANGHOA (MaHH, TenHH, DonGia, Hinh) VALUES
 ('OTO00', 'Ford68', 1000, 'Ford68.png'),
 ('OTO01', 'Toyota Wigo', 600, 'Wigo.png'),
+('OTO02', 'Mazda 2020', 400, 'Mazda2020.png'),
 ('TANK00', 'T54 843', 3000, 'T54.png'),
 ('TANK01', 'M1A1 Abrams', 2000, 'M1A1.png'),
 ('SCO00', 'Honda Dream', 200, 'Dream.png'),
+('SCO01', 'Vision 2013', 100, 'Vision2013.png'),
 ('XLAN00', 'Lucass X79Z', 400, 'XLan00.png'),
-('XLAN01', 'Lucass X7', 500, 'XLan01.png');
+('XLAN01', 'Lucass X7', 500, 'XLan01.png'),
+('XLAN02', 'TM060', 600, 'XLan02.png');
 
 #KhachHang(#MaKH, HoTen, DienThoai, Email)
 INSERT INTO KHACHHANG (MaKH, HoTen, DienThoai, Email) VALUES
