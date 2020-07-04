@@ -12,7 +12,7 @@ ChiTietHoaDon(#MaCTHD, MaHD, MaHH, SoLuong)
 
 CREATE TABLE IF NOT EXISTS LOAI (
     MaLoai VARCHAR(10) COLLATE utf8_unicode_ci NOT NULL,
-    TenLoai VARCHAR(20) COLLATE utf8_unicode_ci NOT NULL,
+    TenLoai VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL,
     MOTA VARCHAR(50) COLLATE utf8_unicode_ci NULL,
     PRIMARY KEY (MaLoai)
 );
@@ -56,3 +56,28 @@ CREATE TABLE IF NOT EXISTS CHITIETHOADON (
     CONSTRAINT FOREIGN KEY (MaHD) REFERENCES HOADON(MaHD),
     CONSTRAINT FOREIGN KEY (MaHH) REFERENCES HANGHOA(MaHH)
 );
+
+/*Thêm dữ liệu*/
+
+INSERT INTO LOAI (MaLoai, TenLoai, MoTa) VALUES
+('LXE00', 'Ô tô', 'Ô tô con 4 - 6 chỗ'),
+('LXE01', 'Xe tải', 'Xe tải để vận tải'),
+('LXE02', 'Xe bán tải', 'Xe gia đình, du lịch'),
+('LXE03', 'Xe thể thao', 'Tốc độ cao'),
+('LXE04', 'Xe gắn máy', 'Xe nhỏ, tối đa 2 người'),
+('LXE05', 'Xe PKL', 'Xe máy phân khối lớn'),
+('LXE06', 'Xe đạp', 'Sử dụng cơ chân để di chuyển'),
+('LXE07', 'Xe tăng', 'Hỏa lực cao, di chuyển chậm'),
+('LXE08', 'Xe lăn', 'Rất phổ biến với người tật nguyền'),
+('LXE09', 'Xe đạp điện', 'hiện đại hơn xe đạp'),
+('LXE10', 'Xe cẩu', 'Dùng để cẩu xe');
+
+/*HangHoa(#MaHH, TenHH, DonGia, Hinh)*/
+INSERT INTO HANGHOA (MaHH, TenHH, DonGia, Hinh) VALUES
+('OTO00', 'Ford68', 1000, 'Ford68.png'),
+('OTO01', 'Toyota Wigo', 600, 'Wigo.png'),
+('TANK00', 'T54 843', 3000, 'T54.png'),
+('TANK01', 'M1A1 Abrams', 2000, 'M1A1.png'),
+('SCO00', 'Honda Dream', 200, 'Dream.png'),
+('XLAN00', 'Lucass X79Z', 400, 'XLan00.png'),
+('XLAN01', 'Lucass X7', 500, 'XLan01.png'),
