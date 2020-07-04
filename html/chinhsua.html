@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Chỉnh sửa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/loai.css">
+    <link href="../../css/khachhang.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/hanghoa.css">
+</head>
+<body>
+    <div class="container">
+        <h2>CHỈNH SỬA THÔNG TIN</h2>
+        <br>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Loại</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">Hàng hóa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Khách hàng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3">Hóa đơn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu4">Chi tiết hóa đơn</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active">
+                <br>
+                <div class="container" id="mainContainer">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h2 class="text-center text-uppercase">Chỉnh sửa loại xe</h2>
+                        <div class="row">
+                            <div class="typecode text-right col-3">
+                                Mã loại
+                            </div>
+                            <div class="typecode-textare form-group col-9">
+                                <select name="LoaiHoa" class="form-control">
+                                    <?php
+                                    include_once("DataProvider.php");
+                                    $dsLoaiHoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
+                                    while($loai = mysqli_fetch_array($dsLoaiHoa))
+                                    {
+                                    echo "
+                                    <option value="{$loai[' MaLoai']}">{$loai['TenLoai']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="typename col-3 text-right">
+                                Tên loại
+                            </div>
+                            <div class="col-9">
+                                <input name="TenLoai" class="form-control" placeholder="Nhập Tên Loại" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <div class="description col-3 text-right">
+                                Mô tả
+                            </div>
+                            <div class="col-9" style="margin-bottom: 5px;">
+                                <textarea name="MoTa" rows="5" class="form-control" placeholder="Điền Mô Tả">
+                    </textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" style="margin: 5px 5px 5px 5px;">
+                                    Thêm
+                                </button>
+                                <button class="btn btn-warning" style="margin: 5px 5px 5px 5px;">
+                                    Cập nhật
+                                </button>
+                                <button class="btn btn-danger" style="margin: 5px 5px 5px 5px;">
+                                    Xóa
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="menu1" class="container tab-pane fade">
+                <br>
+                <div class="container" id="mainContainer">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h2 class="text-center text-uppercase">Chỉnh sửa thông tin hàng hóa</h2>
+                        <div class="row">
+                            <div class="typecode col-3 text-right">
+                                Mã hàng hóa
+                            </div>
+                            <div class="typecode-textare col-9 form-group">
+                                <select name="MaHangHoa" class="form-control">
+                                    <?php
+                                    include_once("DataProvider.php");
+                                    $dsLoaiHoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
+                                    while($loai = mysqli_fetch_array($dsLoaiHoa))
+                                    {
+                                    echo "
+                                    <option value="{$loai[' MaLoai']}">{$loai['TenLoai']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <div class="typename col-3 text-right">
+                                Tên hàng hóa
+                            </div>
+                            <div class="col-9">
+                                <input name="TenHangHoa" class="form-control" placeholder="Nhập Tên Hàng Hóa..." />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px; padding-top: 15px; ">
+                            <div class="typeprice col-3 text-right">
+                                Giá bán
+                            </div>
+                            <div class="col-9">
+                                <input name="GiaBan" type="number" class="form-control" placeholder="Nhập Giá..." />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <div class="typephoto col-3 text-right">
+                                Hình
+                            </div>
+                            <div class="col-9 form-group">
+                                <input type="file" name="Hinh" required class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" id="btnAdd" style="margin: 5px 5px 5px 5px;">
+                                    Thêm
+                                </button>
+                                <button class="btn btn-warning" id="btnUpdate" style="margin: 5px 5px 5px 5px;">
+                                    Cập nhật
+                                </button>
+                                <button class="btn btn-danger" id="btnDelete" style="margin: 5px 5px 5px 5px;">
+                                    Xóa
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="menu2" class="container tab-pane fade">
+                <br>
+                <div class="container" id="mainContainer">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h2 class="text-center text-uppercase">Chỉnh sửa thông tin khách hàng</h2>
+                        <div class="row">
+                            <div class="typecode col-3 text-right">
+                                Mã khách hàng
+                            </div>
+                            <div class="typecode col-9 form-group">
+                                <select name="MaKhachHang" class="form-control">
+                                    <?php
+                                    include_once("DataProvider.php");
+                                    $dsLoaiHoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
+                                    while($loai = mysqli_fetch_array($dsLoaiHoa))
+                                    {
+                                    echo "
+                                    <option value='{$loai[' MaLoai']}'>{$loai['TenLoai']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="typename col-3 text-right">
+                                Họ tên
+                            </div>
+                            <div class="col-9">
+                                <input name="HoTen" class="form-control" placeholder="Nhập họ tên" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="phone col-3 text-right">
+                                Số điện thoại
+                            </div>
+                            <div class=" col-9">
+                                <input name="DienThoai" type="tel" class="form-control" placeholder="Nhập số điện thoại" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="email col-3 text-right">
+                                Email
+                            </div>
+                            <div class="col-9">
+                                <input name="Email" type="email" class="form-control" placeholder="Nhập email" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" style="margin: 5px 5px 5px 5px;">
+                                    Thêm
+                                </button>
+                                <button class="btn btn-warning" style="margin: 5px 5px 5px 5px;">
+                                    Cập nhật
+                                </button>
+                                <button class="btn btn-danger" style="margin: 5px 5px 5px 5px;">
+                                    Xóa
+                                </button>
+                            </div>
+                        </div>
+                        </foarm>
+                </div>
+            </div>
+            <div id="menu3" class="container tab-pane fade">
+                <br>
+                <div class="container" id="mainContainer">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h2 class="text-center text-uppercase">Hóa đơn</h2>
+                        <div class="row">
+                            <div class="typecode col-3 text-right">
+                                Mã khách hàng
+                            </div>
+                            <div class="typecode col-9 form-group">
+                                <select name="MaKhachHang" class="form-control">
+                                    <?php
+                                    include_once("DataProvider.php");
+                                    $dsLoaiHoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
+                                    while($loai = mysqli_fetch_array($dsLoaiHoa))
+                                    {
+                                    echo "
+                                    <option value='{$loai[' MaLoai']}'>{$loai['TenLoai']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="typename col-3 text-right">
+                                Họ tên
+                            </div>
+                            <div class="col-9">
+                                <input name="HoTen" class="form-control" placeholder="Nhập họ tên" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="phone col-3 text-right">
+                                Số điện thoại
+                            </div>
+                            <div class=" col-9">
+                                <input name="DienThoai" type="tel" class="form-control" placeholder="Nhập số điện thoại" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="email col-3 text-right">
+                                Email
+                            </div>
+                            <div class="col-9">
+                                <input name="Email" type="email" class="form-control" placeholder="Nhập email" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" style="margin: 5px 5px 5px 5px;">
+                                    Thêm
+                                </button>
+                                <button class="btn btn-warning" style="margin: 5px 5px 5px 5px;">
+                                    Cập nhật
+                                </button>
+                                <button class="btn btn-danger" style="margin: 5px 5px 5px 5px;">
+                                    Xóa
+                                </button>
+                            </div>
+                        </div>
+                        </foarm>
+                </div>
+            </div>
+            <div id="menu4" class="container tab-pane fade">
+                <br>
+                <div class="container" id="mainContainer">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <h2 class="text-center text-uppercase">Chi tiết hóa đơn</h2>
+                        <div class="row">
+                            <div class="typecode col-3 text-right">
+                                Mã khách hàng
+                            </div>
+                            <div class="typecode col-9 form-group">
+                                <select name="MaKhachHang" class="form-control">
+                                    <?php
+                                    include_once("DataProvider.php");
+                                    $dsLoaiHoa = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loaihoa");
+                                    while($loai = mysqli_fetch_array($dsLoaiHoa))
+                                    {
+                                    echo "
+                                    <option value='{$loai[' MaLoai']}'>{$loai['TenLoai']}</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="typename col-3 text-right">
+                                Họ tên
+                            </div>
+                            <div class="col-9">
+                                <input name="HoTen" class="form-control" placeholder="Nhập họ tên" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="phone col-3 text-right">
+                                Số điện thoại
+                            </div>
+                            <div class=" col-9">
+                                <input name="DienThoai" type="tel" class="form-control" placeholder="Nhập số điện thoại" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-1" style="padding-bottom: 15px;">
+                            <div class="email col-3 text-right">
+                                Email
+                            </div>
+                            <div class="col-9">
+                                <input name="Email" type="email" class="form-control" placeholder="Nhập email" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" style="margin: 5px 5px 5px 5px;">
+                                    Thêm
+                                </button>
+                                <button class="btn btn-warning" style="margin: 5px 5px 5px 5px;">
+                                    Cập nhật
+                                </button>
+                                <button class="btn btn-danger" style="margin: 5px 5px 5px 5px;">
+                                    Xóa
+                                </button>
+                            </div>
+                        </div>
+                        </foarm>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
