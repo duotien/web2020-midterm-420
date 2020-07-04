@@ -1,4 +1,4 @@
-CREATE IF NOT EXISTS qlsp;
+CREATE DATABASE IF NOT EXISTS qlsp;
 
 use qlsp;
 
