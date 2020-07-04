@@ -17,3 +17,12 @@ CREATE TABLE IF NOT EXISTS LOAI (
     PRIMARY KEY (MaLoai)
 );
 
+/*HangHoa(#MaHH, TenHH, DonGia, Hinh)*/
+
+CREATE TABLE IF NOT EXISTS HANGHOA (
+    MaHH VARCHAR(10) COLLATE utf8_unicode_ci NOT NULL,
+    TenHH VARCHAR(50) COLLATE utf8_unicode_ci NOT NULL,
+    DonGia INT(11) NOT NULL,
+    Hinh varchar(50) COLLATE utf8_unicode_ci
+);
+
