@@ -3,19 +3,19 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Chỉnh sửa</title>
+    <title>Hàng Hóa</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../../css/hanghoa.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="mainContainer">
         <form action="" method="post" enctype="multipart/form-data">
             <h2 class="text-center text-uppercase">Chỉnh sửa hàng hóa</h2>
             <div class="row">
-                <div class="col-3 text-right">
+                <div class="typecode col-3 text-right">
                     Mã hàng hóa
                 </div>
-                <div class="col-9 form-group">
+                <div class="typecode-textare col-9 form-group">
                     <select name="MaHangHoa" class="form-control">
                         <?php
                         include_once("DataProvider.php");
@@ -23,7 +23,7 @@
                         while($loai = mysqli_fetch_array($dsLoaiHoa))
                         {
                         echo "
-                        <option value='{$loai[' MaLoai']}'>{$loai['TenLoai']}</option>";
+                        <option value="{$loai[' MaLoai']}">{$loai['TenLoai']}</option>";
                         }
                         ?>
                     </select>
@@ -31,25 +31,25 @@
             </div>
 
             <div class="row mb-1">
-                <div class="col-3 text-right">
+                <div class="typename col-3 text-right">
                     Tên hàng hóa
                 </div>
                 <div class="col-9">
-                    <input name="TenHangHoa" class="form-control" />
+                    <input name="TenHangHoa" class="form-control" placeholder="Nhập Tên Hàng Hóa..." />
                 </div>
             </div>
 
-            <div class="row mb-1">
-                <div class="col-3 text-right">
+            <div class="row mb-1" style="padding-bottom: 15px; padding-top: 15px; " >
+                <div class="typeprice col-3 text-right">
                     Giá bán
                 </div>
                 <div class="col-9">
-                    <input name="GiaBan" type="number" class="form-control" />
+                    <input name="GiaBan" type="number" class="form-control" placeholder="Nhập Giá..." />
                 </div>
             </div>
 
             <div class="row mb-1">
-                <div class="col-3 text-right">
+                <div class="typephoto col-3 text-right">
                     Hình
                 </div>
                 <div class="col-9 form-group">
@@ -59,13 +59,13 @@
 
             <div class="row">
                 <div class="col-12 text-center">
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" id="btnAdd" style="margin: 5px 5px 5px 5px;">
                         Thêm
                     </button>
-                    <button class="btn btn-warning">
+                    <button class="btn btn-warning" id="btnUpdate" style="margin: 5px 5px 5px 5px;">
                         Cập nhật
                     </button>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger" id="btnDelete" style="margin: 5px 5px 5px 5px;">
                         Xóa
                     </button>
                 </div>
@@ -75,5 +75,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascrip" ></script>
 </body>
 </html>
